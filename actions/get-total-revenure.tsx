@@ -1,5 +1,4 @@
 import prismadb from "@/lib/prisma"
-import { Order } from "@prisma/client"
 
 export const getTotalRevenure = async (storeId: string) => {
     const paidOrders = await prismadb.order.findMany({
