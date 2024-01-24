@@ -1,13 +1,10 @@
-# Swiftcart Dashboard
-
-## Introduction
+## Swiftcart Dashboard
 
 Welcome to Swiftcart Dashboard! This MERN (MongoDB, Express, React, Node.js) based dashboard is designed to simplify the management of multiple e-commerce platforms in one place. With features like billboards, categories, sizes, colors, products, orders, Stripe integration, and authentication powered by Clerk, Swiftcart Dashboard streamlines your online store management experience.
 
 ## Have a Look
 
-![Swiftcart Dashboard](https://swiftcart-dashboard.vercel.app)
-
+https://swiftcart-dashboard.vercel.app
 Feel free to explore the intuitive interface and discover how Swiftcart Dashboard can enhance your e-commerce management.
 
 ## Features
