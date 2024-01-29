@@ -1,6 +1,6 @@
 ## Swiftcart Dashboard
 
-Welcome to Swiftcart Dashboard! This MERN (MongoDB, Express, React, Node.js) based dashboard is designed to simplify the management of multiple e-commerce platforms in one place. With features like billboards, categories, sizes, colors, products, orders, Stripe integration, and authentication powered by Clerk, Swiftcart Dashboard streamlines your online store management experience.
+Welcome to Swiftcart Dashboard! This Next.JS based dashboard is designed to simplify the management of multiple e-commerce platforms in one place. With features like billboards, categories, sizes, colors, products, orders, Stripe integration, and authentication powered by Clerk, Swiftcart Dashboard streamlines the online store management experience.
 
 ## Have a Look
 
