@@ -77,6 +77,6 @@ export async function POST(
 
     return NextResponse.json({ url: session.url }, { headers: corsHeaders });
   } catch (error) {
-    console.log("[CHECKOUT_POST]", error);
+    console.error("[CHECKOUT_POST]", error);
   }
 }

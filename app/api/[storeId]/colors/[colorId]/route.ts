@@ -16,7 +16,7 @@ export async function GET(
 
     return NextResponse.json(color);
   } catch (error) {
-    console.log("[COLORID_GET]", error);
+    console.error("[COLORID_GET]", error);
     return new NextResponse("Internal Server Error", { status: 500 });
   }
 }
@@ -50,7 +50,7 @@ export async function PATCH(
 
     return NextResponse.json(color);
   } catch (error) {
-    console.log("[COLORID_PATCH]", error);
+    console.error("[COLORID_PATCH]", error);
     return new NextResponse("Internal Server Error", { status: 500 });
   }
 }
@@ -78,7 +78,7 @@ export async function DELETE(
 
     return NextResponse.json(color);
   } catch (error) {
-    console.log("[COLORID_DELETE]", error);
+    console.error("[COLORID_DELETE]", error);
     return new NextResponse("Internal Server Error", { status: 500 });
   }
 }

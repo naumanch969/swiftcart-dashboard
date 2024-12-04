@@ -23,7 +23,7 @@ export async function PATCH(
 
     return NextResponse.json(store);
   } catch (error) {
-    console.log("[STORES_PATCH]", error);
+    console.error("[STORES_PATCH]", error);
     return new NextResponse("Internal Server Error", { status: 500 });
   }
 }
@@ -45,7 +45,7 @@ export async function DELETE(
 
     return NextResponse.json(store);
   } catch (error) {
-    console.log("[STORES_DELETE]", error);
+    console.error("[STORES_DELETE]", error);
     return new NextResponse("Internal Server Error", { status: 500 });
   }
 }

@@ -57,7 +57,7 @@ export const BillboardForm = ({ initialData }: { initialData: Billboard | null }
             router.push(`/${params.storeId}/billboards`)
             toast.success(toastMessage)
         } catch (error) {
-            console.log(error)
+            console.error(error)
             toast.error('Something went wrong!')
         }
         finally {
@@ -73,7 +73,7 @@ export const BillboardForm = ({ initialData }: { initialData: Billboard | null }
             router.push(`/${params.storeId}/billboards`)
             toast.success('Billboard deleted')
         } catch (error) {
-            console.log(error)
+            console.error(error)
             toast.error('Make sure you removed all categories using this billboard.')
         }
         finally {

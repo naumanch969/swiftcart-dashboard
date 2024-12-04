@@ -82,7 +82,7 @@ export const ProductForm = ({ initialData, categories, sizes, colors }: Props) =
             router.push(`/${params.storeId}/products`)
             toast.success(toastMessage)
         } catch (error) {
-            console.log(error)
+            console.error(error)
             toast.error('Something went wrong!')
         }
         finally {
@@ -98,7 +98,7 @@ export const ProductForm = ({ initialData, categories, sizes, colors }: Props) =
             router.push(`/${params.storeId}/products`)
             toast.success('Products deleted')
         } catch (error) {
-            console.log(error)
+            console.error(error)
             toast.error('Something went wrong!')
         }
         finally {

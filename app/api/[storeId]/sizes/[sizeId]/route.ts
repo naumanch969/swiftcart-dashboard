@@ -16,7 +16,7 @@ export async function GET(
 
     return NextResponse.json(size);
   } catch (error) {
-    console.log("[SIZEID_GET]", error);
+    console.error("[SIZEID_GET]", error);
     return new NextResponse("Internal Server Error", { status: 500 });
   }
 }
@@ -50,7 +50,7 @@ export async function PATCH(
 
     return NextResponse.json(size);
   } catch (error) {
-    console.log("[SIZEID_PATCH]", error);
+    console.error("[SIZEID_PATCH]", error);
     return new NextResponse("Internal Server Error", { status: 500 });
   }
 }
@@ -78,7 +78,7 @@ export async function DELETE(
 
     return NextResponse.json(size);
   } catch (error) {
-    console.log("[SIZEID_DELETE]", error);
+    console.error("[SIZEID_DELETE]", error);
     return new NextResponse("Internal Server Error", { status: 500 });
   }
 }

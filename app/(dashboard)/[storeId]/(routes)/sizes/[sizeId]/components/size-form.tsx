@@ -56,7 +56,7 @@ export const SizeForm = ({ initialData }: { initialData: Size | null, }) => {
             router.push(`/${params.storeId}/sizes`)
             toast.success(toastMessage)
         } catch (error) {
-            console.log(error)
+            console.error(error)
             toast.error('Something went wrong!')
         }
         finally {
@@ -72,7 +72,7 @@ export const SizeForm = ({ initialData }: { initialData: Size | null, }) => {
             router.push(`/${params.storeId}/sizes`)
             toast.success('Size deleted')
         } catch (error) {
-            console.log(error)
+            console.error(error)
             toast.error('Make sure you removed all products using this size.')
         }
         finally {

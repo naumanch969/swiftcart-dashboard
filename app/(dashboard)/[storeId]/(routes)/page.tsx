@@ -19,7 +19,7 @@ const DashboardPage = async ({ params }: { params: { storeId: string } }) => {
     const salesCount = await getSalesCount(params.storeId)
     const stockCount = await getStockCount(params.storeId)
     const graphRevenue = await getGraphRevenue(params.storeId)
-console.log(graphRevenue)
+
     return (
         <div className='flex flex-col' >
             <div className="flex-1 space-y-4 p-8 pt-6 ">

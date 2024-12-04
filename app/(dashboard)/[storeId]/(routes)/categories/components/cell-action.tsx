@@ -37,7 +37,7 @@ export const CellAction = ({ data }: Props) => {
             router.refresh()
             toast.success('Category deleted')
         } catch (error) {
-            console.log(error)
+            console.error(error)
             toast.error('Make sure you removed all products using this category.')
         }
         finally {
