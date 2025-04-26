@@ -14,7 +14,7 @@ const BillboardsPage = async ({ params }: Props) => {
         orderBy: { createdAt: 'desc' }
     })
 
-    const formattedBillboards: BillboardColumn[] = billboards.map((billboard) => ({
+    const formattedBillboards: BillboardColumn[] = billboards.map((billboard: any) => ({
         id: billboard.id,
         label: billboard.label,
         createdAt: format(billboard.createdAt, 'MMMM do, yyyy')
