@@ -1,6 +1,6 @@
 "use client"
 
-import { Category, Color, Image, Product, Size } from '@prisma/client'
+import { Billboard, Category, Color, Image, Product, Size } from '@prisma/client'
 import React, { useState } from 'react'
 import * as z from 'zod'
 import { useForm } from 'react-hook-form'
@@ -36,15 +36,18 @@ type ProductsFormValues = z.infer<typeof formSchema>
 
 interface Props {
     initialData: Product & { images: Image[] } | null,
-    categories: Category[],
+    categories: (Category & { billboard: Billboard })[],
     sizes: Size[],
     colors: Color[]
 }
 
 export const ProductForm = ({ initialData, categories, sizes, colors }: Props) => {
 
+    /////////////////////////////////////////////////////////////// STATES ///////////////////////////////////////////////////////////////////
     const [open, setOpen] = useState(false)
     const [loading, setLoading] = useState(false)
+
+    /////////////////////////////////////////////////////////////// VARIABLES ///////////////////////////////////////////////////////////////////
     const params = useParams()
     const router = useRouter()
     const form = useForm<ProductsFormValues>({
@@ -69,6 +72,7 @@ export const ProductForm = ({ initialData, categories, sizes, colors }: Props) =
     const toastMessage = initialData ? "Product updated." : "Product created."
     const action = initialData ? "Save changes" : "Create"
 
+    /////////////////////////////////////////////////////////////// FUNCTIONS ///////////////////////////////////////////////////////////////////
     const onSubmit = async (values: ProductsFormValues) => {
         try {
             setLoading(true)
@@ -107,7 +111,7 @@ export const ProductForm = ({ initialData, categories, sizes, colors }: Props) =
         }
     }
 
-
+    /////////////////////////////////////////////////////////////// USE EFFECTS ///////////////////////////////////////////////////////////////////
     return (
         <>
             <AlertModal
@@ -202,7 +206,7 @@ export const ProductForm = ({ initialData, categories, sizes, colors }: Props) =
                                             {
                                                 categories.map((category, index) => (
                                                     <SelectItem value={category.id} key={index} >
-                                                        {category.name}
+                                                        {category.name} - {category?.billboard?.label}
                                                     </SelectItem>
                                                 ))
                                             }

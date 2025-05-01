@@ -21,7 +21,7 @@ const ProductsPage = async ({ params }: Props) => {
         name: product.name,
         isFeatured: product.isFeatured,
         isArchived: product.isArchived,
-        price: formatter.format(product.price.toNumber()),
+        price: formatter.format(Number(product.price)),
         category: product.category.name,
         size: product.size.name,
         color: product.color.value,

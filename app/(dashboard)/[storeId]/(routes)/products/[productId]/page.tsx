@@ -13,6 +13,7 @@ const ProductsIdPage = async ({ params: { productId, storeId } }: { params: { pr
 
     const categories = await prisma.category.findMany({
         where: { storeId },
+        include: { billboard: true }
     })
 
     const sizes = await prisma.size.findMany({
