@@ -1,4 +1,4 @@
-import prismadb from '@/lib/prisma'
+import prisma from '@/lib/prisma'
 import React from 'react'
 import { CategoryForm } from './components/category-form'
 
@@ -6,11 +6,11 @@ import { CategoryForm } from './components/category-form'
 const CategoryPage = async ({ params: { categoryId, storeId } }: { params: { categoryId: string, storeId: string } }) => {
 
 
-    const category = await prismadb.category.findUnique({
+    const category = await prisma.category.findUnique({
         where: { id: categoryId }
     })
 
-    const billboards = await prismadb.billboard.findMany({
+    const billboards = await prisma.billboard.findMany({
         where: { storeId: storeId }
     })
 

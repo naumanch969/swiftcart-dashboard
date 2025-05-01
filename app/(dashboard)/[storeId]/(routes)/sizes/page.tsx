@@ -1,5 +1,5 @@
 import React from 'react'
-import prismadb from '@/lib/prisma'
+import prisma from '@/lib/prisma'
 import { format } from 'date-fns'
 
 import SizeClient from './components/SizeClient'
@@ -9,12 +9,12 @@ type Props = { params: { storeId: string } }
 
 const SizesPage = async ({ params }: Props) => {
 
-    const sizes = await prismadb.size.findMany({
+    const sizes = await prisma.size.findMany({
         where: { storeId: params.storeId },
         orderBy: { createdAt: 'desc' }
     })
 
-    const formattedSizes: SizeColumn[] = sizes.map((size) => ({
+    const formattedSizes: SizeColumn[] = sizes.map((size: any) => ({
         id: size.id,
         name: size.name,
         value: size.value,

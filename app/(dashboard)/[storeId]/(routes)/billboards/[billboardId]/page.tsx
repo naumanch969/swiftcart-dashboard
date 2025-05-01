@@ -1,4 +1,4 @@
-import prismadb from '@/lib/prisma'
+import prisma from '@/lib/prisma'
 import React from 'react'
 import { BillboardForm } from './components/billboard-form'
 
@@ -6,7 +6,7 @@ import { BillboardForm } from './components/billboard-form'
 const BillboardIdPage = async ({ params: { billboardId } }: { params: { billboardId: string } }) => {
 
 
-    const billboard = await prismadb.billboard.findUnique({
+    const billboard = await prisma.billboard.findUnique({
         where: { id: billboardId }
     })
 

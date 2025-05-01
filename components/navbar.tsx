@@ -4,7 +4,7 @@ import { UserButton, auth } from '@clerk/nextjs'
 import { MainNav } from '@/components/main-nav'
 import StoreSwitcher from '@/components/store-switcher'
 import { redirect } from 'next/navigation'
-import prismadb from '@/lib/prisma'
+import prisma from '@/lib/prisma'
 import { ModeToggle } from './theme-toggle'
 
 const Navbar = async () => {
@@ -12,7 +12,7 @@ const Navbar = async () => {
     const { userId } = auth()
     if (!userId) redirect('/sign-in')
 
-    const stores = await prismadb.store.findMany({
+    const stores = await prisma.store.findMany({
         where: { userId }
     })
 

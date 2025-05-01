@@ -1,4 +1,4 @@
-import prismadb from "@/lib/prisma";
+import prisma from "@/lib/prisma";
 import { auth } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
 
@@ -10,7 +10,7 @@ export async function GET(
   try {
     if (!params.colorId) return new NextResponse("ColorId is required");
 
-    const color = await prismadb.color.findUnique({
+    const color = await prisma.color.findUnique({
       where: { id: params.colorId },
     });
 
@@ -38,12 +38,12 @@ export async function PATCH(
     if (!params.storeId) return new NextResponse("StoreId is required");
     if (!params.colorId) return new NextResponse("ColorId is required");
 
-    const store = await prismadb.store.findFirst({
+    const store = await prisma.store.findFirst({
       where: { userId, id: params.storeId },
     });
     if (!store) return new NextResponse("Unauthorized ", { status: 400 });
 
-    const color = await prismadb.color.updateMany({
+    const color = await prisma.color.updateMany({
       where: { id: params.colorId },
       data: { name, value },
     });
@@ -67,12 +67,12 @@ export async function DELETE(
     if (!params.storeId) return new NextResponse("StoreId is required");
     if (!params.colorId) return new NextResponse("ColorId is required");
 
-    const store = await prismadb.store.findFirst({
+    const store = await prisma.store.findFirst({
       where: { userId, id: params.storeId },
     });
     if (!store) return new NextResponse("Unauthorized ", { status: 400 });
 
-    const color = await prismadb.color.deleteMany({
+    const color = await prisma.color.deleteMany({
       where: { id: params.colorId },
     });
 

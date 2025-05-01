@@ -1,4 +1,4 @@
-import prismadb from "@/lib/prisma";
+import prisma from "@/lib/prisma";
 import { auth } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
 
@@ -16,7 +16,7 @@ export async function PATCH(
 
     if (!params.storeId) return new NextResponse("StoreId is required");
 
-    const store = await prismadb.store.updateMany({
+    const store = await prisma.store.updateMany({
       where: { id: params.storeId, userId },
       data: { name },
     });
@@ -39,7 +39,7 @@ export async function DELETE(
 
     if (!params.storeId) return new NextResponse("StoreId is required");
 
-    const store = await prismadb.store.deleteMany({
+    const store = await prisma.store.deleteMany({
       where: { id: params.storeId, userId },
     });
 

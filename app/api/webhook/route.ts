@@ -1,4 +1,4 @@
-import prismadb from "@/lib/prisma";
+import prisma from "@/lib/prisma";
 import { stripe } from "@/lib/stripe";
 import { headers } from "next/headers";
 import { NextResponse } from "next/server";
@@ -37,7 +37,7 @@ export async function POST(req: Request) {
   const addressString = addressComponents.filter((c) => c != null).join(", ");
 
   if (event.type == "checkout.session.completed") {
-    const order = await prismadb.order.update({
+    const order = await prisma.order.update({
       where: { id: session?.metadata?.orderId },
       data: {
         isPaid: true,
@@ -49,9 +49,9 @@ export async function POST(req: Request) {
       },
     });
 
-    const productIds = order.orderItems.map((orderItem) => orderItem.productId);
+    const productIds = order.orderItems.map((orderItem: any) => orderItem.productId);
 
-    await prismadb.product.updateMany({
+    await prisma.product.updateMany({
       where: {
         id: {
           in: [...productIds],

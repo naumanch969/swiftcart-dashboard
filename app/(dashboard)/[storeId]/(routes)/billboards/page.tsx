@@ -1,5 +1,5 @@
 import React from 'react'
-import prismadb from '@/lib/prisma'
+import prisma from '@/lib/prisma'
 import { format } from 'date-fns'
 
 import BillBoardClient from './components/BillBoardClient'
@@ -9,7 +9,7 @@ type Props = { params: { storeId: string } }
 
 const BillboardsPage = async ({ params }: Props) => {
 
-    const billboards = await prismadb.billboard.findMany({
+    const billboards = await prisma.billboard.findMany({
         where: { storeId: params.storeId },
         orderBy: { createdAt: 'desc' }
     })

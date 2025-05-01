@@ -1,6 +1,6 @@
 import React from 'react'
 
-import prismadb from '@/lib/prisma'
+import prisma from '@/lib/prisma'
 import { Separator } from '@/components/ui/separator'
 import { Heading } from '@/components/ui/heading'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'

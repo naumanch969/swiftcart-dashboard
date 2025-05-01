@@ -1,4 +1,4 @@
-import prismadb from '@/lib/prisma'
+import prisma from '@/lib/prisma'
 import React from 'react'
 import { ProductForm } from './components/product-form'
 
@@ -6,20 +6,20 @@ import { ProductForm } from './components/product-form'
 const ProductsIdPage = async ({ params: { productId, storeId } }: { params: { productId: string, storeId: string } }) => {
 
 
-    const product = await prismadb.product.findUnique({
+    const product = await prisma.product.findUnique({
         where: { id: productId },
         include: { images: true }
     })
 
-    const categories = await prismadb.category.findMany({
+    const categories = await prisma.category.findMany({
         where: { storeId },
     })
 
-    const sizes = await prismadb.size.findMany({
+    const sizes = await prisma.size.findMany({
         where: { storeId },
     })
 
-    const colors = await prismadb.color.findMany({
+    const colors = await prisma.color.findMany({
         where: { storeId },
     })
 

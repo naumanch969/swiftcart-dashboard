@@ -1,5 +1,5 @@
 import React from 'react'
-import prismadb from '@/lib/prisma'
+import prisma from '@/lib/prisma'
 import { format } from 'date-fns'
 
 import ProductClient from './components/ProductClient'
@@ -10,13 +10,13 @@ type Props = { params: { storeId: string } }
 
 const ProductsPage = async ({ params }: Props) => {
 
-    const products = await prismadb.product.findMany({
+    const products = await prisma.product.findMany({
         where: { storeId: params.storeId },
         include: { category: true, size: true, color: true },
         orderBy: { createdAt: 'desc' }
     })
 
-    const formattedproducts: ProductColumn[] = products.map((product) => ({
+    const formattedproducts: ProductColumn[] = products.map((product: any) => ({
         id: product.id,
         name: product.name,
         isFeatured: product.isFeatured,

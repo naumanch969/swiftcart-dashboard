@@ -2,7 +2,7 @@ import Stripe from "stripe";
 
 import { stripe } from "@/lib/stripe";
 import { NextResponse } from "next/server";
-import prismadb from "@/lib/prisma";
+import prisma from "@/lib/prisma";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -24,7 +24,7 @@ export async function POST(
     if (!productIds || productIds.length == 0)
       return new NextResponse("ProductIds is required.");
 
-    const products = await prismadb.product.findMany({
+    const products = await prisma.product.findMany({
       where: {
         id: {
           in: productIds,
@@ -34,7 +34,7 @@ export async function POST(
 
     const line_items: Stripe.Checkout.SessionCreateParams.LineItem[] = [];
 
-    products.forEach((product) => {
+    products.forEach((product: any) => {
       line_items.push({
         quantity: 1,
         price_data: {
@@ -47,7 +47,7 @@ export async function POST(
       });
     });
 
-    const order = await prismadb.order.create({
+    const order = await prisma.order.create({
       data: {
         storeId: params.storeId,
         isPaid: false,

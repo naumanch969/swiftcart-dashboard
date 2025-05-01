@@ -1,4 +1,4 @@
-import prismadb from "@/lib/prisma";
+import prisma from "@/lib/prisma";
 import { auth } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
 
@@ -10,7 +10,7 @@ export async function GET(
   try {
     if (!params.billboardId) return new NextResponse("BillboardId is required");
 
-    const billboard = await prismadb.billboard.findUnique({
+    const billboard = await prisma.billboard.findUnique({
       where: { id: params.billboardId },
     });
 
@@ -38,12 +38,12 @@ export async function PATCH(
     if (!params.storeId) return new NextResponse("StoreId is required");
     if (!params.billboardId) return new NextResponse("BillboardId is required");
 
-    const store = await prismadb.store.findFirst({
+    const store = await prisma.store.findFirst({
       where: { userId, id: params.storeId },
     });
     if (!store) return new NextResponse("Unauthorized ", { status: 400 });
 
-    const billboard = await prismadb.billboard.updateMany({
+    const billboard = await prisma.billboard.updateMany({
       where: { id: params.billboardId },
       data: { label, imageUrl },
     });
@@ -67,12 +67,12 @@ export async function DELETE(
     if (!params.storeId) return new NextResponse("StoreId is required");
     if (!params.billboardId) return new NextResponse("BillboardId is required");
 
-    const store = await prismadb.store.findFirst({
+    const store = await prisma.store.findFirst({
       where: { userId, id: params.storeId },
     });
     if (!store) return new NextResponse("Unauthorized ", { status: 400 });
 
-    const billboard = await prismadb.billboard.deleteMany({
+    const billboard = await prisma.billboard.deleteMany({
       where: { id: params.billboardId },
     });
 

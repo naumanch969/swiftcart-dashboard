@@ -1,4 +1,4 @@
-import prismadb from '@/lib/prisma'
+import prisma from '@/lib/prisma'
 import React from 'react'
 import { SizeForm } from './components/size-form'
 
@@ -6,7 +6,7 @@ import { SizeForm } from './components/size-form'
 const SizePage = async ({ params: { sizeId } }: { params: { sizeId: string, storeId: string } }) => {
 
 
-    const size = await prismadb.size.findUnique({
+    const size = await prisma.size.findUnique({
         where: { id: sizeId }
     })
 

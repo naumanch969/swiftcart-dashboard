@@ -1,4 +1,4 @@
-import prismadb from '@/lib/prisma'
+import prisma from '@/lib/prisma'
 import { auth } from '@clerk/nextjs'
 import { redirect } from 'next/navigation'
 import React, { ReactNode } from 'react'
@@ -13,7 +13,7 @@ const DashboardLayout = async ({ children, params }: { children: ReactNode, para
     if (!userId) redirect('/sign-in')
 
 
-    const store = await prismadb.store.findFirst({
+    const store = await prisma.store.findFirst({
         where: {
             id: params.storeId, userId
         }

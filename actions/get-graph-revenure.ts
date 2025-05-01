@@ -1,7 +1,7 @@
-import prismadb from "@/lib/prisma";
+import prisma from "@/lib/prisma";
 
 export const getGraphRevenue = async (storeId: string) => {
-  const paidOrders = await prismadb.order.findMany({
+  const paidOrders = await prisma.order.findMany({
     where: { storeId, isPaid: true },
     include: { orderItems: { include: { product: true } } },
   });

@@ -1,5 +1,5 @@
 import React from 'react'
-import prismadb from '@/lib/prisma'
+import prisma from '@/lib/prisma'
 import { format } from 'date-fns'
 
 import ColorClient from './components/ColorClient'
@@ -9,12 +9,12 @@ type Props = { params: { storeId: string } }
 
 const ColorsPage = async ({ params }: Props) => {
 
-    const colors = await prismadb.color.findMany({
+    const colors = await prisma.color.findMany({
         where: { storeId: params.storeId },
         orderBy: { createdAt: 'desc' }
     })
 
-    const formattedColors: ColorColumn[] = colors.map((color) => ({
+    const formattedColors: ColorColumn[] = colors.map((color: any) => ({
         id: color.id,
         name: color.name,
         value: color.value,

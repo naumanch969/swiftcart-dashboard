@@ -1,4 +1,4 @@
-import prismadb from "@/lib/prisma";
+import prisma from "@/lib/prisma";
 import { auth } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
 
@@ -10,7 +10,7 @@ export async function GET(
   try {
     if (!params.sizeId) return new NextResponse("SizeId is required");
 
-    const size = await prismadb.size.findUnique({
+    const size = await prisma.size.findUnique({
       where: { id: params.sizeId },
     });
 
@@ -38,12 +38,12 @@ export async function PATCH(
     if (!params.storeId) return new NextResponse("StoreId is required");
     if (!params.sizeId) return new NextResponse("SizeId is required");
 
-    const store = await prismadb.store.findFirst({
+    const store = await prisma.store.findFirst({
       where: { userId, id: params.storeId },
     });
     if (!store) return new NextResponse("Unauthorized ", { status: 400 });
 
-    const size = await prismadb.size.updateMany({
+    const size = await prisma.size.updateMany({
       where: { id: params.sizeId },
       data: { name, value },
     });
@@ -67,12 +67,12 @@ export async function DELETE(
     if (!params.storeId) return new NextResponse("StoreId is required");
     if (!params.sizeId) return new NextResponse("SizeId is required");
 
-    const store = await prismadb.store.findFirst({
+    const store = await prisma.store.findFirst({
       where: { userId, id: params.storeId },
     });
     if (!store) return new NextResponse("Unauthorized ", { status: 400 });
 
-    const size = await prismadb.size.deleteMany({
+    const size = await prisma.size.deleteMany({
       where: { id: params.sizeId },
     });
 

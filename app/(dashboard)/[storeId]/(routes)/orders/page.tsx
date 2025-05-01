@@ -1,5 +1,5 @@
 import React from 'react'
-import prismadb from '@/lib/prisma'
+import prisma from '@/lib/prisma'
 import { format } from 'date-fns'
 
 import OrderClient from './components/OrderClient'
@@ -10,7 +10,7 @@ type Props = { params: { storeId: string } }
 
 const OrdersPage = async ({ params }: Props) => {
 
-    const orders = await prismadb.order.findMany({
+    const orders = await prisma.order.findMany({
         where: { storeId: params.storeId },
         include: {
             orderItems: {
@@ -23,12 +23,12 @@ const OrdersPage = async ({ params }: Props) => {
     });
 
 
-    const formattedOrders: OrderColumn[] = orders.map((order) => ({
+    const formattedOrders: OrderColumn[] = orders.map((order: any) => ({
         id: order.id,
         phone: order.phone,
         address: order.address,
-        products: order.orderItems.map(orderItem => orderItem.product.name).join(', '),
-        totalPrice: formatter.format(order.orderItems.reduce((total, item) => {
+        products: order.orderItems.map((orderItem: any) => orderItem.product.name).join(', '),
+        totalPrice: formatter.format(order.orderItems.reduce((total: number, item: any) => {
             return total + Number(item.product.price)
         }, 0)),
         isPaid: order.isPaid,
