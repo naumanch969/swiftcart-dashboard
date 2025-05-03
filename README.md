@@ -111,7 +111,7 @@ Submit a pull request
 ## Contact
 For questions, suggestions, or support:
 
-📧 Email: naumanch969@gmail.com['naumanch969']
+📧 Email: naumanch969@gmail.com
 🌐 Website: https://swiftcart.iamnauman.com
 
 Thank you for using SwiftCart Dashboard!
