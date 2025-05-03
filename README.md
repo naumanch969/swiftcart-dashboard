@@ -2,7 +2,7 @@
 
 **SwiftCart Dashboard** is a modern, full-featured e-commerce admin panel built with **Next.js**, offering centralized control over multiple storefronts. From product and order management to API access and store-specific configuration, this dashboard is the command center for your SwiftCart ecosystem.
 
-🔗 **Live Demo:** [https://swiftcart-dashboard.vercel.app](https://swiftcart-dashboard.vercel.app)  
+🔗 **Live Demo:** [https://swiftcart.iamnauman.com](https://swiftcart.iamnauman.com)  
 📦 **Storefront Repo:** [github.com/naumanch969/swiftcart-store](https://github.com/naumanch969/swiftcart-store)
 
 ---
