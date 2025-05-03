@@ -7,7 +7,7 @@
 
 ---
 
-## ✨ Features
+## Features
 
 * **Multi-Store Support** – Manage multiple e-commerce stores independently.
 * **Billboards** – Feature eye-catching banners and promotions.
@@ -22,7 +22,7 @@
 
 ---
 
-## 🧱 Architecture Overview
+## Architecture Overview
 
 * Built with **Next.js App Router**
 * Backend APIs served via **Next.js API routes**
@@ -32,7 +32,7 @@
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### 1. Clone the Repository
 
@@ -72,7 +72,7 @@ npm run dev
 
 Go to http://localhost:3000
 
-## 🐳 Docker Usage
+## Docker Usage
 To build and run the app using Docker:
 ```bash
 docker build -t swiftcart-dashboard .
@@ -81,31 +81,21 @@ docker run -p 3000:3000 swiftcart-dashboard
 Make sure to set your .env in Docker properly.
 
 
-## 🛠 Tech Stack
+## Tech Stack
 Framework: Next.js
-
 Database: MongoDB Atlas
-
 ORM: Prisma
-
 Auth: Clerk
-
 Storage: Cloudinary
-
 Payments: Stripe
-
 State: Zustand
-
 Charts: Recharts
-
 UI: Tailwind CSS + ShadCN/UI
-
 Deployment: Vercel
-
 DevOps: Docker
 
 
-## 🤝 Contributing
+## Contributing
 We welcome contributions! To get started:
 
 Fork the repo
@@ -118,7 +108,7 @@ Push to your branch: ```git push origin feature/your-feature```
 
 Submit a pull request
 
-## 📬 Contact
+## Contact
 For questions, suggestions, or support:
 
 📧 Email: naumanch969@gmail.com['naumanch969']
